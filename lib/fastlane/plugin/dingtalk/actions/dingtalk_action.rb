@@ -20,6 +20,8 @@ module Fastlane
         message = DingBot::Message::WholeActionCard.new(title, message, more_title, more_url)
 
         DingBot.send_msg(message)
+
+        UI.success "Message send success."
       end
 
       def self.description
@@ -47,8 +49,23 @@ module Fastlane
                                   optional: false,
                                       type: String),
           FastlaneCore::ConfigItem.new(key: :message,
+                                  env_name: "DINGTALK_TITLE",
+                               description: "Title",
+                                  optional: false,
+                                      type: String),
+          FastlaneCore::ConfigItem.new(key: :message,
                                   env_name: "DINGTALK_MESSAGE",
                                description: "Message",
+                                  optional: false,
+                                      type: String),
+          FastlaneCore::ConfigItem.new(key: :more_title,
+                                  env_name: "DINGTALK_MORE_TITLE",
+                               description: "More title",
+                                  optional: false,
+                                      type: String),
+          FastlaneCore::ConfigItem.new(key: :message,
+                                  env_name: "DINGTALK_MORE_URL",
+                               description: "More URL",
                                   optional: false,
                                       type: String)
         ]
@@ -58,7 +75,7 @@ module Fastlane
         # Adjust this if your plugin only works for a particular platform (iOS vs. Android, for example)
         # See: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
         #
-        # [:ios, :mac, :android].include?(platform)
+        [:ios, :mac, :android].include?(platform)
         true
       end
     end

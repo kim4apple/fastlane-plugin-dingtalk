@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'kim4apple@gmail.com'
 
   spec.summary       = 'a fastlane plugin for dingtalk robot'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-dingtalk"
+  spec.homepage      = "https://github.com/kim4apple/fastlane-plugin-dingtalk"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
