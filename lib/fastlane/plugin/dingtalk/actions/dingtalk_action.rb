@@ -10,20 +10,14 @@ module Fastlane
 
         title = params[:title]
         message = params[:message]
-        moreTitle = params[:moreTitle]
-        moreURL = params[:moreURL]
+        more_title = params[:more_title]
+        more_url = params[:more_url]
 
-        DingBot.endpoint='https://oapi.dingtalk.com/robot/send'
+        DingBot.endpoint = 'https://oapi.dingtalk.com/robot/send'
         DingBot.access_token = access_token
 
-
-        # 发送整体跳转ActionCard消息
-        message = DingBot::Message::WholeActionCard.new(
-            title,
-            message,
-            moreTitle,
-            moreURL
-        )
+        # Send ActionCard message
+        message = DingBot::Message::WholeActionCard.new(title, message, more_title, more_url)
 
         DingBot.send_msg(message)
       end
