@@ -12,14 +12,12 @@ module Fastlane
         message = params[:message]
         more_title = params[:more_title]
         more_url = params[:more_url]
-        is_at_all = params[:is_at_all]
 
         DingBot.endpoint = 'https://oapi.dingtalk.com/robot/send'
         DingBot.access_token = access_token
 
         # Send ActionCard message
         message = DingBot::Message::WholeActionCard.new(title, message, more_title, more_url)
-        message.isAtAll = is_at_all
 
         DingBot.send_msg(message)
 
@@ -74,13 +72,7 @@ module Fastlane
                                description: "More URL",
                                   optional: false,
                              default_value: "",
-                                      type: String),
-          FastlaneCore::ConfigItem.new(key: :is_at_all,
-                                  env_name: "DINGTALK_IS_AT_ALL",
-                               description: "Is at all",
-                                  optional: true,
-                             default_value: false,
-                                      type: String)
+                                      type: String))
         ]
       end
 
