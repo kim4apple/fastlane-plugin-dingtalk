@@ -72,7 +72,7 @@ module Fastlane
                                description: "More URL",
                                   optional: false,
                              default_value: "",
-                                      type: String))
+                                      type: String)
         ]
       end
 
